@@ -31,6 +31,8 @@ exports.signin = async (req, res) => {
                 username: user[0].username,
                 message: 'Signed in successfully!'
             });
+        }).catch((err) => {
+            return res.status(500).send({ message: err });
         });
     });
 }
