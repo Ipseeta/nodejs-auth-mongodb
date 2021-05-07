@@ -15,7 +15,7 @@ exports.getConnection = async () => {
         if (conn) console.log('Mongodb connected successfully!');
         return conn;
     }
-    catch(err) {
+    catch (err) {
         console.log('Error in mongodb connection', err);
         process.exit();
     }
