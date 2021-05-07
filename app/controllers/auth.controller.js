@@ -24,13 +24,13 @@ exports.signin = async (req, res) => {
     db.collection(`${dbConfig.USER}`).find({ username: req.body.username }).toArray((err, user) => {
         if (err) return res.status(500).send({ message: err });
         if (!user[0]) return res.status(404).send({ message: 'User not found' });
-        const isPassValid = bcrypt.compareSync(req.body.password, user[0].password);
-        if (!isPassValid) return res.status(401).send({ message: 'Invalid Password!' });
-
-        res.send({
-            id: user[0]._id,
-            username: user[0].username,
-            message: 'Signed in successfully!'
+        bcrypt.compare(req.body.password, user[0].password).then((isPassValid)=>{
+            if (!isPassValid) return res.status(401).send({ message: 'Invalid Password!' });
+            res.send({
+                id: user[0]._id,
+                username: user[0].username,
+                message: 'Signed in successfully!'
+            });
         });
     });
 }
