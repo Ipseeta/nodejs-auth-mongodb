@@ -1,0 +1,24 @@
+{
+  "name": "nodejs-auth-mongodb",
+  "version": "1.0.0",
+  "description": "A sample nodejs project to illustrate use of bcrypt with mongodb",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node.js",
+    "authentication",
+    "bcrypt",
+    "mongodb"
+  ],
+  "author": "Ipseeta",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongodb": "^3.6.6"
+  }
+}
